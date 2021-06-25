@@ -6,7 +6,7 @@ export function ListDivider() {
   return (
     <View
       style={{
-        width: '78%',
+        width: '75%',
         height: 1,
         backgroundColor: theme.colors.secondary40,
         marginTop: 2,
