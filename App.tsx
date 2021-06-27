@@ -8,9 +8,7 @@ import {
 } from '@expo-google-fonts/rajdhani';
 import AppLoading from 'expo-app-loading';
 
-import { SignIn } from './src/screens/Signin';
 import { Background } from './src/components/Background';
-import { Home } from './src/screens/Home';
 import { Routes } from './src/routes';
 
 import { AuthProvider } from './src/context/auth';

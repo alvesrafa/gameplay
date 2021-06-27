@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { GuildProps } from '../../components/Guild';
 
 import { Guild } from '../../components/Guild';

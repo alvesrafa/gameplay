@@ -27,11 +27,12 @@ import {
   RESPONSE_TYPE,
   CLIENT_ID,
 } from '../configs/discord.auth';
-import { api } from '../../services/api';
+import { api } from '../services/api';
 
 type AuthorizationResponse = AuthSession.AuthSessionResult & {
   params: {
-    access_token: string;
+    access_token?: string;
+    error: string;
   };
 };
 export function AuthProvider({ children }: Props) {
@@ -48,7 +49,8 @@ export function AuthProvider({ children }: Props) {
         authUrl,
       })) as AuthorizationResponse;
 
-      if (type !== 'success') throw new Error('Não foi possível autenticar');
+      if (type !== 'success' || params?.error)
+        throw new Error('Não foi possível autenticar');
 
       api.defaults.headers.authorization = `Bearer ${params.access_token}`;
 
@@ -62,12 +64,10 @@ export function AuthProvider({ children }: Props) {
         firstname: firstName,
         avatar: userAvatar,
         email: data.email,
-        token: params.access_token,
+        token: params?.access_token || '',
         username: data.username,
       });
     } catch (e) {
-      console.log('Error signIn', e);
-
       throw new Error('Não foi possível autenticar');
     } finally {
       setLoading(false);

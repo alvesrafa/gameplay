@@ -20,7 +20,7 @@ export function SignIn() {
     try {
       await signIn();
     } catch (e) {
-      Alert.alert(e);
+      Alert.alert(e?.message || 'Não foi possível efetuar o login.');
     }
   };
 
