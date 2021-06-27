@@ -13,6 +13,9 @@ import { Background } from './src/components/Background';
 import { Home } from './src/screens/Home';
 import { Routes } from './src/routes';
 
+import { AuthProvider } from './src/context/auth';
+import { useAuth } from './src/hooks/useAuth';
+
 export default function App() {
   const [fontsLoaded, error] = useFonts({
     Inter_400Regular,
@@ -20,6 +23,8 @@ export default function App() {
     Rajdhani_500Medium,
     Rajdhani_700Bold,
   });
+
+  const {} = useAuth();
 
   if (!fontsLoaded) return <AppLoading />;
 
@@ -30,7 +35,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </Background>
   );
 }
