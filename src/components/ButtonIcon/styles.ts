@@ -32,5 +32,6 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text500,
     fontSize: 15,
     textAlign: 'center',
+    paddingRight: 24,
   },
 });

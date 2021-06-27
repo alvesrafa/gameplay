@@ -2,17 +2,30 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Avatar } from '../Avatar';
 import { theme } from '../../global/styles/theme';
-export function ListDivider() {
+
+type Props = {
+  isCentered?: boolean;
+};
+
+export function ListDivider({ isCentered = false }: Props) {
   return (
     <View
-      style={{
-        width: '75%',
-        height: 1,
-        backgroundColor: theme.colors.secondary40,
-        marginTop: 2,
-        marginVertical: 31,
-        alignSelf: 'flex-end',
-      }}
+      style={[
+        {
+          width: '78%',
+          height: 1,
+          backgroundColor: theme.colors.secondary40,
+          alignSelf: 'flex-end',
+        },
+        isCentered
+          ? {
+              marginVertical: 12,
+            }
+          : {
+              marginTop: 2,
+              marginBottom: 31,
+            },
+      ]}
     />
   );
 }
