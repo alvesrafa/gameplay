@@ -22,8 +22,6 @@ export default function App() {
     Rajdhani_700Bold,
   });
 
-  const {} = useAuth();
-
   if (!fontsLoaded) return <AppLoading />;
 
   return (

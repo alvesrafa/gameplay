@@ -29,7 +29,7 @@ export function CategorySelect({
       {categories.map((category) => (
         <Category
           key={category.id}
-          title={category.title}
+          title={category?.title}
           icon={category.icon}
           checked={category.id === categoriySelected}
           onPress={() => handleSelectCategory(category.id)}
